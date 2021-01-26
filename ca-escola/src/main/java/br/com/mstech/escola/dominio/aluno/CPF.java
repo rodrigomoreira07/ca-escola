@@ -1,4 +1,4 @@
-package br.com.mstech.escola;
+package br.com.mstech.escola.aluno;
 
 import br.com.caelum.stella.validation.CPFValidator;
 
@@ -8,7 +8,7 @@ public class CPF {
 
     public CPF(String numero) {
 
-        CPFValidator cpfValidator = new CPFValidator(); 
+        CPFValidator cpfValidator = new CPFValidator(true); 
         if (numero == null || !cpfValidator.isEligible(numero)) 
             throw new IllegalArgumentException("CPF inválido");
         

@@ -1,9 +1,9 @@
+package br.com.mstech.escola.dominio.aluno;
+
 import static org.junit.jupiter.api.Assertions.assertEquals;
 import static org.junit.jupiter.api.Assertions.assertThrows;
 
 import org.junit.jupiter.api.Test;
-
-import br.com.mstech.escola.Email;
 
 public class EmailTest {
     

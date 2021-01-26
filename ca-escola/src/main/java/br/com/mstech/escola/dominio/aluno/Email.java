@@ -1,4 +1,4 @@
-package br.com.mstech.escola;
+package br.com.mstech.escola.aluno;
 
 public class Email {
 

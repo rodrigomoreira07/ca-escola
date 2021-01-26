@@ -1,4 +1,4 @@
-package br.com.mstech.escola;
+package br.com.mstech.escola.dominio.aluno;
 
 /**
  * Telefone
@@ -11,10 +11,10 @@ public class Telefone {
     
     public Telefone(String ddd, String numero) {
         
-        if (ddd == null || !ddd.matches("/^[0-9]{2}$/"))
+        if (ddd == null || !ddd.matches("[0-9]{2}"))
             throw new IllegalArgumentException("DDD inválido");
 
-        if (numero == null || !numero.matches("/^[0-9]{9}$/"))
+        if (numero == null || !numero.matches("[0-9]{8,9}"))
             throw new IllegalArgumentException("Número inválido");
 
         this.ddd = ddd;
@@ -27,5 +27,10 @@ public class Telefone {
 
     public String getNumero() {
         return numero;
+    }
+
+    @Override
+    public String toString() {
+        return "(" + ddd + ") " + numero;
     }
 }
