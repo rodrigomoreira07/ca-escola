@@ -12,4 +12,17 @@ public class Indicacao {
         this.indicado = indicado;
         this.indicante = indicante;
     }
+
+    public String getNomeIndicado() {
+        return indicado.getNome();
+    }
+
+    public String getNomeIndicante() {
+        return indicante.getNome();
+    }
+
+    public String getEmailIndicado() {
+        return indicado.getEmail();
+    }
+
 }
