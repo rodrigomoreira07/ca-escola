@@ -16,7 +16,7 @@ public class CPFTest {
             () -> new CPF(null));
 
         assertThrows(IllegalArgumentException.class, 
-            () -> new CPF("32425795855"));
+            () -> new CPF("12345678900"));
 
         assertThrows(IllegalArgumentException.class, 
             () -> new CPF("cpf invalido"));
@@ -24,7 +24,7 @@ public class CPFTest {
 
     @Test
     public void criarCPFValido() {
-        String cpfValido = "324.257.958-55";
+        String cpfValido = "123.456.789-00";
 
         assertEquals(cpfValido, (new CPF(cpfValido)).getNumero());
     }
