@@ -10,7 +10,7 @@ public class FabricaDeAluno {
     }
 
     public FabricaDeAluno comTelefone(String ddd, String numero) {
-        aluno.adicionarTelefone(new Telefone(ddd, numero));
+        aluno.adicionarTelefone(ddd, numero);
         return this;
     }
 

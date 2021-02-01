@@ -23,12 +23,15 @@ public class Aluno {
         this.email = email;
     }
 
-    public void adicionarTelefone(Telefone telefone) {
-        telefones.add(telefone);
+    public void adicionarTelefone(String ddd, String numero) {
+        if (telefones.size() == 2)
+            throw new QuantidadeMaximaTelefoneException();
+
+        telefones.add(new Telefone(ddd,  numero));
     }
 
-    public String getCpf() {
-        return cpf.getNumero();
+    public CPF getCpf() {
+        return cpf;
     }
 
     public String getNome() {

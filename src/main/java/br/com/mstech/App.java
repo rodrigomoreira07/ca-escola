@@ -1,7 +1,10 @@
 package br.com.mstech;
 
-import br.com.mstech.escola.aplicacao.aluno.AlunoDto;
 import br.com.mstech.escola.aplicacao.aluno.MatriculadorDeAluno;
+import br.com.mstech.escola.aplicacao.aluno.MatriculadorDeAlunoDto;
+import br.com.mstech.escola.dominio.PublicadorDeEventos;
+import br.com.mstech.escola.dominio.aluno.LogDeAlunoMatriculado;
+import br.com.mstech.escola.dominio.aluno.RepositorioDeAluno;
 import br.com.mstech.escola.infraestrutura.aluno.RepositorioDeAlunoEmMemoria;
 
 /**
@@ -23,9 +26,13 @@ public class App
         System.out.print("Informe o E-mail: ");
         String email = System.console().readLine();
         
-		AlunoDto dto = new AlunoDto(nome, cpf, email);
+		MatriculadorDeAlunoDto dto = new MatriculadorDeAlunoDto(nome, cpf, email);
 
-        MatriculadorDeAluno matriculador = new MatriculadorDeAluno(new RepositorioDeAlunoEmMemoria());
+        RepositorioDeAluno repositorio = new RepositorioDeAlunoEmMemoria();
+        PublicadorDeEventos publicador = new PublicadorDeEventos();
+        publicador.adicionar(new LogDeAlunoMatriculado());
+
+        MatriculadorDeAluno matriculador = new MatriculadorDeAluno(repositorio, publicador);
         matriculador.executar(dto);
 
         System.out.println("Aluno matriculado");

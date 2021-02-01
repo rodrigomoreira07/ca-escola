@@ -4,6 +4,7 @@ import static org.junit.jupiter.api.Assertions.assertEquals;
 
 import org.junit.jupiter.api.Test;
 
+import br.com.mstech.escola.dominio.PublicadorDeEventos;
 import br.com.mstech.escola.dominio.aluno.Aluno;
 import br.com.mstech.escola.dominio.aluno.CPF;
 import br.com.mstech.escola.dominio.aluno.RepositorioDeAluno;
@@ -15,14 +16,15 @@ public class MatriculadorDeAlunoTest {
     public void deveriaMaricularAluno() {
 
         RepositorioDeAluno repositorio = new RepositorioDeAlunoEmMemoria();
+        PublicadorDeEventos publicador = new PublicadorDeEventos();
 
-        MatriculadorDeAluno matriculadorDeAluno = new MatriculadorDeAluno(repositorio);
+        MatriculadorDeAluno matriculadorDeAluno = new MatriculadorDeAluno(repositorio, publicador);
 
         String nome = "Nome Aluno";
         String cpf = "123.456.789-00";
         String email = "aluno@gmail.com";
 
-        AlunoDto dto = new AlunoDto(nome, cpf, email);
+        MatriculadorDeAlunoDto dto = new MatriculadorDeAlunoDto(nome, cpf, email);
         matriculadorDeAluno.executar(dto);
 
         Aluno aluno = repositorio.buscarPorCPF(new CPF(cpf));

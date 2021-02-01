@@ -19,4 +19,12 @@ public class CPF {
         return numero;
     }
 
+    @Override
+    public String toString() {
+        return numero;
+    }
+
+    public boolean equals(CPF outroCpf) {
+        return numero.equals(outroCpf.getNumero());
+    }
 }
